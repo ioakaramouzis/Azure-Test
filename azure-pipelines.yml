@@ -2,12 +2,14 @@ trigger:
   - main
 
 pool:
-  name: 'Default'
+  name: 'Default'   # or whatever pool your agent is in
 
 steps:
   - checkout: self
 
   - script: |
-      echo "Hello from self-hosted agent!"
+      echo "Checking Azure login..."
       az account show
-    displayName: 'Test Agent and Azure CLI'
+      echo "Creating resource group..."
+      az group create --name DevOpsRG --location eastus
+    displayName: 'Deploy Resource Group'
