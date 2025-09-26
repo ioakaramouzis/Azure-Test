@@ -1,7 +1,13 @@
-trigger: 
-- main 
-pool: 
-- name: 'SelfHostPool' 
-steps: 
-- script: echo "Hello from self-hosted agent!" 
-  displayName: 'Test Agent' 
+trigger:
+  - main
+
+pool:
+  name: 'SelfHostPool'
+
+steps:
+  - checkout: self
+
+  - script: |
+      echo "Hello from self-hosted agent!"
+      az account show
+    displayName: 'Test Agent and Azure CLI'
