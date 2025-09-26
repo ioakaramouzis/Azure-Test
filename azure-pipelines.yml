@@ -3,10 +3,11 @@ trigger:
 
 pool:
   name: 'Default'  # Or whatever pool your agent is in
-
 steps:
   - checkout: self
     clean: true
+    fetchDepth: 0
+    ref: refs/heads/main
 
   - script: |
       echo "Checking Azure login..."
