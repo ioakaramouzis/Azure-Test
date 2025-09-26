@@ -2,10 +2,11 @@ trigger:
   - main
 
 pool:
-  name: 'Default'   # or whatever pool your agent is in
+  name: 'Default'  # Or whatever pool your agent is in
 
 steps:
   - checkout: self
+    clean: true
 
   - script: |
       echo "Checking Azure login..."
